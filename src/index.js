@@ -18,7 +18,7 @@ function Hourly(props) {
         return (
           <div className="hourly-wrap" key={hour.dt}>
             <div key={index + 100} className="hourly">{stringHour}</div>
-            <img key={index + 200} className="hourly-icon" alt="weather icon" src={`http://openweathermap.org/img/wn/${hourImg}@2x.png`}></img>
+            <img key={index + 200} className="hourly-icon" alt="weather icon" src={`https://openweathermap.org/img/wn/${hourImg}@2x.png`}></img>
             <div key={index} className="hourly-temp">{temp}&#8451;</div>
           </div>
         );
@@ -39,7 +39,7 @@ function Week(props) {
       return (
         <div className="weekly-wrap" key={day.dt}>
           <div key={index + 100} className="weekly">{stringDay}</div>
-          <img key={index + 200} className="weekly-icon" alt="daily icon" src={`http://openweathermap.org/img/wn/${dayImg}@2x.png`}></img>
+          <img key={index + 200} className="weekly-icon" alt="daily icon" src={`https://openweathermap.org/img/wn/${dayImg}@2x.png`}></img>
           <div key={index} className="weekly-temp">{temp}&#8451;</div>
         </div>
       );
@@ -110,7 +110,7 @@ class Weather extends React.Component {
     const feelsLike = parseInt(weather.main.feels_like);
     const hourly = weatherCollection.hourly.slice(0, 7);
     const weekly = weatherCollection.daily.slice(1);
-    const currentIcon = `http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`;
+    const currentIcon = `https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`;
 
     const cityName = city.charAt(0).toUpperCase() + city.slice(1);
     let cities = this.state.cityList.slice();
@@ -140,7 +140,7 @@ class Weather extends React.Component {
 
   async weatherCity(city) {
     try {
-      const response = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=6b6a481228e382e26d9b7d7b23154bf7`, { mode: 'cors' })
+      const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=6b6a481228e382e26d9b7d7b23154bf7`, { mode: 'cors' })
       const weather = await response.json();
       
       const lat = weather.coord.lat;
@@ -183,7 +183,7 @@ class Weather extends React.Component {
         countryInp = countryObj.iso2;
       }
 
-      const response = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city},${countryInp}&units=metric&appid=6b6a481228e382e26d9b7d7b23154bf7`, { mode: 'cors' })
+      const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city},${countryInp}&units=metric&appid=6b6a481228e382e26d9b7d7b23154bf7`, { mode: 'cors' })
       const weather = await response.json();
 
       const lat = weather.coord.lat;
