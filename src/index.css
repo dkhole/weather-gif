@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
 :root {
     --main-bg-color: rgb(246,245,245);
     --weather-bg-color: rgba(0,51,78, 0.5);
@@ -10,11 +12,10 @@
       padding: 0;
       height: 100%;
       width: 100%;
+      font-family: 'Inter', sans-serif;
   }
   
   body {
-    /*background-image: url('https://thumbs.gfycat.com/IllDisastrousIndigowingedparrot-max-1mb.gif');
-    background-size: contain;*/
     background-color: var(--main-bg-color);
   }
   
@@ -117,14 +118,14 @@
   
   #city-title {
     position: absolute;
-    top: 20px;
+    top: 140px;
     bottom: 0;
-    left: 0;
+    left: 45px;
     right: 0;
-    margin: auto;
+    letter-spacing: 2.75px;
     width: 25%;
-    text-align: center;
-    font-size: 2rem;
+
+    font-size: 1.25rem;
     text-transform: capitalize;
   }
   
@@ -164,6 +165,10 @@
   #city-input:hover, #country-input:hover {
     color: red;
   }
+
+  #city-input:focus, #country-input:focus {
+    border: none;
+  }
   
   #submit {
     right: 50px;
@@ -188,22 +193,21 @@
     width: 35%;
     height: 75px;
     position: absolute;
-    top: 0;
-    bottom: 250px;
-    left: 0;
+    top: 175px;
+    bottom: 0;
+    left: 40px;
     right: 0;
-    margin: auto;
-    text-align: center;
-    font-size: 2.5rem;
+
+    font-size: 4.25rem;
+
   }
   
   .main-icon {
     position: absolute;
-    top: 0;
-    bottom: 120px;
-    left: 0;
-    right: 0;
-    margin: auto;
+    top: 145px;
+    bottom: 0;
+    left: 750px;
+
     height: 100px;
     width:  100px;
   }
@@ -215,6 +219,7 @@
     left: 0;
     right: 0;
     margin: auto;
+    color: white;
   }
   
   .main-icon>img {
@@ -224,8 +229,8 @@
   
   .min {
     position: absolute;
-    top: 175px;
-    left: 130px;
+    top: 145px;
+    right: 80px;
     width: 80px;
     height: 70px;
     font-size: 1.5rem;
@@ -234,8 +239,8 @@
   
   .max {
     position: absolute;
-    top: 175px;
-    right: 130px;
+    top: 220px;
+    right: 80px;
     width: 80px;
     height: 70px;
     font-size: 1.5rem;
@@ -246,21 +251,17 @@
     position: absolute;
     height: 20px;
     width: 120px;
-    top: 0;
-    bottom: 400px;
-    left: 0;
-    right: 0;
-    margin: auto;
+    top: 260px;
+    bottom: 0;
+    left: 44px;
     font-size: 0.95rem;
   }
   
   .description {
     position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
+    top: 235px;
+    right: 170px;
+
     height: 20px;
     width: 200px;
     text-align: center;

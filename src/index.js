@@ -4,6 +4,7 @@ import './index.css';
 
 const lookup = require('country-code-lookup');
 const apiKey = '6flguaZ4XstDNrv8tZpNurgUyFWCh3x6';
+const weatherKey = '6b6a481228e382e26d9b7d7b23154bf7';
 const weird = 0;
 
 function Hourly(props) {
@@ -140,7 +141,7 @@ class Weather extends React.Component {
 
   async weatherCity(city) {
     try {
-      const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=6b6a481228e382e26d9b7d7b23154bf7`, { mode: 'cors' })
+      const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${weatherKey}`, { mode: 'cors' })
       const weather = await response.json();
       
       const lat = weather.coord.lat;
@@ -148,7 +149,7 @@ class Weather extends React.Component {
       const country = weather.sys.country;
       const description = weather.weather[0].description;
 
-      const collection = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=metric&exclude=current,minutely&appid=6b6a481228e382e26d9b7d7b23154bf7`, { mode: 'cors' })
+      const collection = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=metric&exclude=current,minutely&appid=${weatherKey}`, { mode: 'cors' })
       const weatherCollection = await collection.json();
       const responseGiph = await fetch(`https://api.giphy.com/v1/gifs/translate?api_key=${apiKey}&s=${description}&weirdness=${weird}`, { mode: 'cors'})
       const gif = await responseGiph.json();
