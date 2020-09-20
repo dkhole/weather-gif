@@ -214,7 +214,7 @@
   hr {
     width: 45%;
     position: absolute;
-    top: 350px;
+    bottom: 295px;
     left: 0;
     right: 0;
     margin: auto;
@@ -268,7 +268,7 @@
   
   .hourly-title {
     position: absolute;
-    bottom: 245px;
+    bottom: 255px;
     width: 100%;
     text-align: center;
     font-weight: bold;
@@ -289,7 +289,7 @@
   
   .weekly-title {
     position: absolute;
-    bottom: 120px;
+    bottom: 125px;
     width: 100%;
     text-align: center;
     font-weight: bold;
