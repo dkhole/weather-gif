@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom';
 import './index.css';
 
 const lookup = require('country-code-lookup');
-const apiKey = '6flguaZ4XstDNrv8tZpNurgUyFWCh3x6';
-const weatherKey = '6b6a481228e382e26d9b7d7b23154bf7';
+const apiKey = process.env.REACT_APP_GIPHY_API_KEY;
+const weatherKey = process.env.REACT_APP_WEATHER_API_KEY;
 const weird = 0;
 
 function Hourly(props) {
@@ -151,7 +151,7 @@ class Weather extends React.Component {
 
       const collection = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=metric&exclude=current,minutely&appid=${weatherKey}`, { mode: 'cors' })
       const weatherCollection = await collection.json();
-      const responseGiph = await fetch(`https://api.giphy.com/v1/gifs/translate?api_key=${apiKey}&s=${description}&weirdness=${weird}`, { mode: 'cors'})
+      const responseGiph = await fetch(`https://api.giphy.com/v1/gifs/random?api_key=${apiKey}&tag=${description}`, { mode: 'cors'})
       const gif = await responseGiph.json();
   
       this.processAPI(weather, weatherCollection, gif, city, country, description);
