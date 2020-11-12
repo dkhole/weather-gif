@@ -1,314 +1,369 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
 
 :root {
-    --main-bg-color: rgb(246,245,245);
-    --weather-bg-color: rgba(0,51,78, 0.5);
-    --secondary-bg-color: rgb(238,111,87);
-    --cities-bg-color: rgb(20,83,116);
-  }
-  
-  html, body, #root, #app {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      width: 100%;
-      font-family: 'Inter', sans-serif;
-  }
-  
-  body {
-    background-color: var(--main-bg-color);
-  }
-  
-  #app {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  #cities-wrapper {
-    padding-top: 50px;
-    height: 100%;
-    width: 15%;
-    position: fixed;
-    left: 0;
-    border-radius: 0 75px 75px 0;
-    font-size: 2rem;
-    color: white;
-    text-align: center;
-    overflow: auto;
-    background-color: var(--cities-bg-color);
-    box-shadow: 40px 80px 80px rgba(0,0,0,0.30), 0 30px 15px rgba(0,0,0,0.22);
-  }
-  
-  @keyframes float {
-      0% {
-          box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
-          transform: translatey(0px);
-      }
-      50% {
-          box-shadow: 0 25px 15px 0px rgba(0,0,0,0.2);
-          transform: translatey(-10px);
-      }
-      100% {
-          box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
-          transform: translatey(0px);
-      }
-  }
-  
-  .wrapper {
-    color: white;
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    background-color: var(--weather-bg-color);
-    box-shadow: 40px 80px 80px rgba(0,0,0,0.30), 0 30px 15px rgba(0,0,0,0.22);
-    border-radius: 20px;
-  }
-  
-  .cities {
-    background-color: var(--secondary-bg-color);
-    height: 5%;
-    width: 90%;
-    margin: 20px 0 20px 10px;
-    font-size: 1rem;
-    padding-top: 30px;
-    cursor: pointer;
-    border-radius: 10px;
-    box-shadow: 0 20px 20px rgba(0,0,0,0.30), 0 10px 15px rgba(0,0,0,0.22);
-    position: relative;
-  }
-  
-  .cities:hover {
-    background-color: orange;
-  }
-  
-  .cities>span {
-    position: absolute;
-    top: 5px;
-    left: 10px;
-    font-size: 1.25rem;
-  }
-  
-  .cities>span:hover {
-    color:red;
-  }
-  
-  #overlay {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 70%;
-    width: 50%;
-    border-radius: 20px;
-    background-color: var(--weather-bg-color);
-    position: relative;
-    top: 60px;
-  }
-  
-  #background-overlay {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    width: 100%;
-    border-radius: 20px;
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
-  
-  #city-title {
-    position: absolute;
-    top: 140px;
-    bottom: 0;
-    left: 45px;
-    right: 0;
-    letter-spacing: 2.75px;
-    width: 25%;
+  --main-bg-color: rgb(246, 245, 245);
+  --weather-bg-color: rgba(0, 51, 78, 0.5);
+  --secondary-bg-color: rgb(236, 110, 76);
+  --cities-bg-color: rgb(20, 83, 116);
+}
 
-    font-size: 1.25rem;
-    text-transform: capitalize;
-  }
-  
-  #input-wrapper {
-    height: 100px;
-    width: 50%;
-    background-color: orange;
-    position: fixed;
-    top: 50px;
-    animation: float 4s ease-in-out infinite;
-    border-radius: 20px;
-  }
-  
-  #city-input, #country-input, #submit {
-    background: transparent;
-    border: none;
-    width: 30%;
-    text-align: center;
-    font-size: 2rem;
-    position: absolute;
-    text-transform: capitalize;
-    top: 25px;
-  }
-  
-  #country-input {
-    font-size: 1.5rem;
-  }
-  
-  #city-input {
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin: auto;
-  }
-  
-  #city-input:hover, #country-input:hover {
-    color: red;
-  }
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  font-family: 'Inter', sans-serif;
+  background-color: yellow;
+}
 
-  #city-input:focus, #country-input:focus {
-    border: none;
-  }
-  
-  #submit {
-    right: 50px;
-    width: 20%;
-    height: 50px;
-    font-size: 1rem;
-    border-radius: 10px;
-    background-color:  var(--secondary-bg-color);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.30);
-    cursor: pointer;
-  }
-  
-  #submit:hover {
-    background-color:   rgb(216, 131, 114);
-  }
-  
-  #submit:active {
-    color: white;
-  }
-  
-  .temp {
-    width: 35%;
-    height: 75px;
-    position: absolute;
-    top: 175px;
-    bottom: 0;
-    left: 40px;
-    right: 0;
+#root,
+#app {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  font-family: 'Inter', sans-serif;
+}
 
-    font-size: 3.5rem;
+body {
+  background-color: var(--main-bg-color);
+}
 
-  }
-  
-  .main-icon {
-    position: absolute;
-    top: 145px;
-    bottom: 0;
-    right: 200px;
-    height: 100px;
-    width:  100px;
-  }
-  
-  hr {
-    width: 45%;
-    position: absolute;
-    bottom: 295px;
-    left: 0;
-    right: 0;
-    margin: auto;
-    color: white;
-  }
-  
-  .main-icon>img {
-    max-width: 100%;
-    height: auto;
-  }
-  
-  .min {
-    position: absolute;
-    top: 190px;
-    right: 80px;
-    width: 80px;
-    height: 70px;
+#app {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-    word-wrap: break-word;
-  }
-  
-  .max {
-    position: absolute;
-    top: 220px;
-    right: 80px;
-    width: 80px;
-    height: 70px;
+#cities-wrapper,
+#cities-wrapper-closed {
+  height: 100%;
+  width: 17.5%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 0 50px 50px 0;
+  font-size: 2rem;
+  color: white;
+  text-align: center;
+  overflow: auto;
+  background-color: white;
+  box-shadow: 40px 80px 80px rgba(0, 0, 0, 0.3), 0 30px 15px rgba(0, 0, 0, 0.22);
+  transition: all 1s;
+}
 
-    word-wrap: break-word;
-  }
-  
-  .feels-like {
-    position: absolute;
-    height: 20px;
-    width: 120px;
-    top: 260px;
-    bottom: 0;
-    left: 44px;
-    font-size: 0.95rem;
-  }
-  
-  .description {
-    position: absolute;
-    top: 235px;
-    right: 150px;
+#cities-wrapper-closed {
+  width: 40px;
+  color: var(--secondary-bg-color);
+}
 
-    height: 20px;
-    width: 200px;
-    text-align: center;
+#cities-wrapper > span {
+  color: black;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+#close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 40px;
+  background-color: var(--secondary-bg-color);
+  cursor: pointer;
+}
+
+#close:hover {
+  background-color: var(--main-bg-color);
+}
+
+@keyframes float {
+  0% {
+    box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6);
+    transform: translatey(0px);
   }
-  
-  .hourly-title {
-    position: absolute;
-    bottom: 255px;
-    width: 100%;
-    text-align: center;
-    font-weight: bold;
+  50% {
+    box-shadow: 0 25px 15px 0px rgba(0, 0, 0, 0.2);
+    transform: translatey(-5px);
   }
-  
-  .hourly-wrapper {
-    position: absolute;
-    bottom: 155px;
-    width: 100%;
-    text-align: center;
-    font-size: 0.75rem;
+  100% {
+    box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6);
+    transform: translatey(0px);
   }
-  
-  .hourly-wrap {
-    display: inline-block;
-    width: 14%
-  }
-  
-  .weekly-title {
-    position: absolute;
-    bottom: 125px;
-    width: 100%;
-    text-align: center;
-    font-weight: bold;
-  }
-  
-  .weekly-wrapper {
-    position: absolute;
-    bottom: 30px;
-    width: 100%;
-    text-align: center;
-    font-size: 0.75rem;
-  }
-  
-  .weekly-wrap {
-    display: inline-block;
-    width: 14%;
-  }
-  
-  .weekly-icon, .hourly-icon {
-    height: 50px;
-    width: 50px;
-  }
+}
+
+.wrapper {
+  color: white;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  background-color: var(--weather-bg-color);
+  box-shadow: 40px 80px 80px rgba(0, 0, 0, 0.3), 0 30px 15px rgba(0, 0, 0, 0.22);
+  border-radius: 20px;
+}
+
+.cities {
+  background-color: var(--secondary-bg-color);
+  height: 5%;
+  width: 60%;
+  margin: 20px 0 20px 10px;
+  font-size: 1rem;
+  padding-top: 40px;
+  margin-left: 50px;
+  cursor: pointer;
+  border-radius: 10px;
+  box-shadow: 0 20px 20px rgba(0, 0, 0, 0.3), 0 10px 15px rgba(0, 0, 0, 0.22);
+  position: relative;
+}
+
+.cities:hover {
+  background-color: orange;
+}
+
+.cities > span {
+  position: absolute;
+  top: 5px;
+  left: 10px;
+  font-size: 1.25rem;
+}
+
+.cities > span:hover {
+  color: red;
+}
+
+#main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70%;
+  width: 50%;
+}
+
+#overlay {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  border-radius: 20px;
+  background-color: var(--weather-bg-color);
+  position: relative;
+  top: 60px;
+}
+
+#background-overlay {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  border-radius: 20px;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#city-title {
+  position: absolute;
+  top: 140px;
+  bottom: 0;
+  left: 45px;
+  right: 0;
+  letter-spacing: 2.75px;
+  width: 25%;
+
+  font-size: 1.25rem;
+  text-transform: capitalize;
+}
+
+#input-wrapper {
+  height: 100px;
+  width: 50%;
+  background-color: white;
+  position: fixed;
+  top: 50px;
+  animation: float 5s ease-in-out infinite;
+  border-radius: 20px;
+}
+
+#city-input,
+#country-input,
+#submit {
+  background: transparent;
+  border: none;
+  width: 30%;
+  text-align: center;
+  font-size: 2rem;
+  position: absolute;
+  text-transform: capitalize;
+  top: 25px;
+}
+
+#country-input {
+  font-size: 1.5rem;
+  top: 35px;
+}
+
+#city-input {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+#city-input:hover,
+#country-input:hover {
+  color: red;
+}
+
+#city-input:focus,
+#country-input:focus {
+  border: none;
+}
+
+#submit {
+  right: 50px;
+  width: 20%;
+  height: 50px;
+  font-size: 1rem;
+  border-radius: 10px;
+  background-color: var(--secondary-bg-color);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+}
+
+#submit:hover {
+  background-color: rgb(216, 131, 114);
+}
+
+#submit:active {
+  color: white;
+}
+
+.temp {
+  width: 35%;
+  height: 75px;
+  position: absolute;
+  top: 175px;
+  bottom: 0;
+  left: 40px;
+  right: 0;
+
+  font-size: 3.5rem;
+}
+
+.main-icon {
+  position: absolute;
+  top: 145px;
+  bottom: 0;
+  right: 200px;
+  height: 100px;
+  width: 100px;
+}
+
+hr {
+  width: 45%;
+  position: absolute;
+  bottom: 295px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  color: white;
+}
+
+.main-icon > img {
+  max-width: 100%;
+  height: auto;
+}
+
+.min {
+  position: absolute;
+  top: 190px;
+  right: 80px;
+  width: 80px;
+  height: 70px;
+
+  word-wrap: break-word;
+}
+
+.max {
+  position: absolute;
+  top: 220px;
+  right: 80px;
+  width: 80px;
+  height: 70px;
+
+  word-wrap: break-word;
+}
+
+.feels-like {
+  position: absolute;
+  height: 20px;
+  width: 120px;
+  top: 260px;
+  bottom: 0;
+  left: 44px;
+  font-size: 0.95rem;
+}
+
+.description {
+  position: absolute;
+  top: 235px;
+  right: 150px;
+
+  height: 20px;
+  width: 200px;
+  text-align: center;
+}
+
+.hourly-title {
+  position: absolute;
+  bottom: 255px;
+  width: 100%;
+  text-align: center;
+  font-weight: bold;
+}
+
+.hourly-wrapper {
+  position: absolute;
+  bottom: 155px;
+  width: 100%;
+  text-align: center;
+  font-size: 0.75rem;
+}
+
+.hourly-wrap {
+  display: inline-block;
+  width: 14%;
+}
+
+.weekly-title {
+  position: absolute;
+  bottom: 125px;
+  width: 100%;
+  text-align: center;
+  font-weight: bold;
+}
+
+.weekly-wrapper {
+  position: absolute;
+  bottom: 30px;
+  width: 100%;
+  text-align: center;
+  font-size: 0.75rem;
+}
+
+.weekly-wrap {
+  display: inline-block;
+  width: 14%;
+}
+
+.weekly-icon,
+.hourly-icon {
+  height: 50px;
+  width: 50px;
+}
